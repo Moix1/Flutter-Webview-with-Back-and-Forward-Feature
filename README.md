@@ -13,13 +13,12 @@ It is simple webview app of flutter with below features
 - Check User agent
 
 ## Must Look
------------------------
 Please have a look to pubspec.yaml some minor configuration i did, you will get the idea.
 
-# You
------------------------
+# Feel Free to edit
 You can change the flutter website URL to yours which can be seen inside maidbook\lib\home_page.dart at line no# 66 and 75, have look to code:
 
+```
 return WebView(
   initialUrl: 'https://flutter.dev/',
   javascriptMode: JavascriptMode.unrestricted,
@@ -38,5 +37,6 @@ return WebView(
   },
 );
 
+```
 
 If you get any error feel free to open issue i will be solving it for you!
