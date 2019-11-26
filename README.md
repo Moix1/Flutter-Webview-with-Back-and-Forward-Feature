@@ -1,16 +1,42 @@
 # maidbook
 
-A new Flutter project.
+It is simple webview app of flutter with below features
 
-## Getting Started
+<b>Features:</b> </br>
+- Back Button
+- Forward Button
+- Refresh Widget
+- Add Cache
+- Clear Cache
+- Add Cookie
+- Clear Cookie
+- Check User agent
 
-This project is a starting point for a Flutter application.
+## Must Look
+-----------------------
+Please have a look to pubspec.yaml some minor configuration i did, you will get the idea.
 
-A few resources to get you started if this is your first Flutter project:
+# You
+-----------------------
+You can change the flutter website URL to yours which can be seen inside maidbook\lib\home_page.dart at line no# 66 and 75, have look to code:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+return WebView(
+  initialUrl: 'https://flutter.dev/',
+  javascriptMode: JavascriptMode.unrestricted,
+  onWebViewCreated: (WebViewController webViewController){
+    _controller.complete(webViewController);
+  },
+  javascriptChannels: 
+  <JavascriptChannel>[snackbarJavascriptChannel(context),
+  ].toSet(),
+  navigationDelegate: (NavigationRequest request){
+    if(request.url.startsWith("https://flutter.dev/")){
+      print('Blocking navigation');
+      return NavigationDecision.prevent;
+    }
+    return NavigationDecision.navigate;
+  },
+);
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+If you get any error feel free to open issue i will be solving it for you!
